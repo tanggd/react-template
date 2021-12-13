@@ -1,18 +1,31 @@
-import { useState } from 'react'
+import React from "react"
+import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
+import routes from './router'
+import Layout from './layout/Layout'
+
 
 export default function App() {
-  const [count, setCount] = useState(0)
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>Hello Vite + React!1111</p>
-        <p>
-          <button type="button" onClick={() => setCount((count) => count + 1)}>
-            count is: {count}
-          </button>
-        </p>
-      </header>
-    </div>
+    <BrowserRouter>
+      <nav>
+        {
+          routes.map(item => <div key={item.path}><Link to={item.path}>{item.name}</Link> | </div>)
+        }
+      </nav>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          {
+            routes.map(item => <Route key={item.path} path={item.path}
+              element={
+                <React.Suspense fallback={<>页面加载中...</>}>
+                  <item.component />
+                </React.Suspense>
+              }
+            />)
+          }
+        </Route>
+      </Routes>
+    </BrowserRouter>
   )
 }
