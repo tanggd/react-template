@@ -24,6 +24,10 @@ export default defineConfig({
       less: {
         // 支持内联 JavaScript
         javascriptEnabled: true,
+        // 自定义主题
+        modifyVars: {
+          // 'primary-color': 'red',
+        }
       },
     },
   },

@@ -70,11 +70,13 @@ tsconfig.json
 
 ### antd
 
+#### 下载
+
 npm i antd @ant-design/icons -S
 
-本身就支持tree shaking
+#### 解决css的按需
 
-解决css的按需
+ant js本身就支持tree shaking
 
 使用vite-plugin-style-import插件，还需要 npm i less -D
 
@@ -108,6 +110,30 @@ export default defineConfig({
 
 此处缺个东西，使用前后css的包大小对比。
 
+#### 自定义ant主题
+
+https://ant.design/docs/react/customize-theme-cn
+
+```javascript
+import styleImport from 'vite-plugin-style-import'
+
+export default defineConfig({
+  css: {
+    preprocessorOptions: {
+      less: {
+        javascriptEnabled: true,
+        // 自定义主题
+        modifyVars: {
+          'primary-color': 'red',
+        }
+      },
+    },
+  },
+})
+```
+
+
+
 
 
 ### react-router-dom
@@ -135,9 +161,16 @@ https://reactrouter.com/docs/en/v6/getting-started/installation
 
 
 
+## 环境变量
+
+
+
+
+
 ## 搭建遇到的问题
 
 - vite工程中，引入一个新包，就不能热更新了，存在问题，待解决，比如引入？？。
+- vite.config.js修改就需要重新启动的问题。
 
 ## 参考资料
 
@@ -145,7 +178,7 @@ https://reactrouter.com/docs/en/v6/getting-started/installation
 
 
 
-
+https://juejin.cn/post/6989475484551610381
 
 ```js
 
