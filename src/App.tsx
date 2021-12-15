@@ -1,5 +1,5 @@
 import React from "react"
-import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
 import routes from './router'
 import Layout from './layout/Layout'
 
@@ -7,7 +7,7 @@ import Layout from './layout/Layout'
 export default function App() {
 
   return (
-    <BrowserRouter>
+    <Router>
       <nav>
         {
           routes.map(item => <div key={item.path}><Link to={item.path}>{item.name}</Link> | </div>)
@@ -26,6 +26,6 @@ export default function App() {
           }
         </Route>
       </Routes>
-    </BrowserRouter>
+    </Router>
   )
 }

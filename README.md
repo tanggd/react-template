@@ -21,13 +21,17 @@ npm i @types/react-router-dom -D
 
 ## 说明
 
-## 更换vite处理react的插件
+### 初始化项目
+
+vite文档
+
+### 更换vite处理react的插件
 
 初始化项目里是使用的'@vitejs/plugin-react'，这个插件的 @vitejs/plugin-react-refresh
 
 npm i @vitejs/plugin-react-refresh -D
 
-## alias
+### alias
 
  npm i @types/node -D
 
@@ -68,6 +72,44 @@ tsconfig.json
 
 npm i antd @ant-design/icons -S
 
+本身就支持tree shaking
+
+解决css的按需
+
+使用vite-plugin-style-import插件，还需要 npm i less -D
+
+```javascript
+import styleImport from 'vite-plugin-style-import'
+
+export default defineConfig({
+  plugins: [
+    // ...
+    styleImport({
+      libs: [
+        {
+          libraryName: 'antd',
+          esModule: true,
+          resolveStyle: (name) => {
+            return `antd/es/${name}/style/index`;
+          },
+        },
+      ]
+    }),
+  ],
+  css: {
+    preprocessorOptions: {
+      less: {
+        javascriptEnabled: true,
+      },
+    },
+  },
+})
+```
+
+此处缺个东西，使用前后css的包大小对比。
+
+
+
 ### react-router-dom
 
 使用的6.x版本，和5.x的版本区别有些大
@@ -81,6 +123,18 @@ https://reactrouter.com/docs/en/v6/getting-started/installation
 - [ ] 路由懒加载，定义打包后路由名字，就如webpack的 ``/* webpackChunkName: "home" */``
 - [ ] 打包后的文件未分文件夹的问题
 
+
+
+问题：
+
+1. 我下载了@types/react-router-dom，打包会报类型错误，因为types都打包到react-router-dom@6中了。卸载该types即可。issues https://github.com/remix-run/react-router/issues/8155
+
+
+
+## 图片类资源
+
+
+
 ## 搭建遇到的问题
 
 - vite工程中，引入一个新包，就不能热更新了，存在问题，待解决，比如引入？？。
@@ -88,6 +142,20 @@ https://reactrouter.com/docs/en/v6/getting-started/installation
 ## 参考资料
 
 - https://github.com/vitejs/awesome-vite#templates
+
+
+
+
+
+```js
+
+
+
+
+
+```
+
+
 
 
 
