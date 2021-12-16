@@ -1,4 +1,3 @@
-import React from 'react'
 import { useState } from 'react'
 import { Button } from 'antd'
 import { SearchOutlined } from '@ant-design/icons'
