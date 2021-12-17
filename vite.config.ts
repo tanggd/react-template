@@ -2,6 +2,7 @@ import { defineConfig, loadEnv } from 'vite'
 import react from '@vitejs/plugin-react'
 import { resolve } from "path"
 import styleImport from 'vite-plugin-style-import'
+import { minifyHtml, injectHtml } from "vite-plugin-html"
 
 // https://vitejs.dev/config/
 export default ({ mode, command }) => {
@@ -21,6 +22,13 @@ export default ({ mode, command }) => {
           },
         ]
       }),
+      minifyHtml(), // 打包可以压缩index.html
+      injectHtml({
+        data: {
+          // 可以直接解构env，或者赋值
+          ...env
+        }
+      })
     ],
     css: {
       preprocessorOptions: {
@@ -43,6 +51,11 @@ export default ({ mode, command }) => {
     server: {
       proxy: {
         // '/api/': env.VITE_BASE_URL,
+        'testApi/': {
+          target: env.VITE_BASE_URL,
+          changeOrigin: true,
+          rewrite: path => path.replace(/^\/testApi/, '') // 将 /api 重写为空
+        }
       },
     },
 
