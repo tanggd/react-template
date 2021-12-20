@@ -1,5 +1,5 @@
 import React from "react"
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
+import { BrowserRouter as Router, Routes, Route, NavLink } from 'react-router-dom'
 import routes from './router'
 import Layout from './layout/Layout'
 
@@ -10,7 +10,7 @@ export default function App() {
     <Router>
       <nav>
         {
-          routes.map(item => <div key={item.path}><Link to={item.path}>{item.name}</Link> | </div>)
+          routes.map(item => <NavLink style={({ isActive }) => ({ display: "block", color: isActive ? 'red' : '', margin: "10px 0" })} to={item.path} key={item.number}>{item.name}</NavLink>)
         }
       </nav>
       <Routes>

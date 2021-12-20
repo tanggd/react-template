@@ -4,19 +4,19 @@ const routes = [
   {
     path: '/',
     name: 'Index',
-    // component: Index,
+    number: 1,
     component: React.lazy(() => import("../views/Home"))
   },
   {
     path: '/about',
     name: 'About',
-    // component: About,
+    number: 2,
     component: React.lazy(() => import("@/views/About"))
   },
   {
     path: '*',
     name: 'NotFound',
-    // component: NotFound,
+    number: 404,
     component: React.lazy(() => import("../views/NotFound"))
   }
 ]

@@ -63,7 +63,37 @@ vite打包后，js、css、图片等资源都在assets目录下；
 
 如果有需要分目录，可以参考 https://github.com/vitejs/vite/issues/3815
 
+```javascript
+export default defineConfig({
+    build:{
+         assetsDir: 'static/img/',
+         rollupOptions: {
+            output: {
+                chunkFileNames: 'static/js/[name]-[hash].js',
+                entryFileNames: 'static/js/[name]-[hash].js',
+                assetFileNames: 'static/[ext]/[name]-[hash].[ext]',
+            },
+        },
+    }
+})
+```
+
+
+
 我觉得多数情况下是没有必要分目录的。
+
+### 是否计算打包大小
+
+```javascript
+
+export default defineConfig({
+    build:{
+        brotliSize: false
+    }
+})
+```
+
+
 
 ### 打包自定义 chunkname
 
@@ -201,6 +231,36 @@ https://reactrouter.com/docs/en/v6/getting-started/installation
 - [x] 路由懒加载
 - [ ] 路由懒加载，定义打包后路由名字，就如webpack的 ``/* webpackChunkName: "home" */``
 - [ ] 打包后的文件未分文件夹的问题
+
+
+
+组件：
+
+BrowserRouter
+
+HashRouter
+
+Routes
+
+Route
+
+Link
+
+NavLink
+
+Outlet
+
+一些方法：
+
+useNavigate
+
+useSearchParams
+
+```
+let [searchParams, setSearchParams] = useSearchParams()
+```
+
+太多了，看文档
 
 
 
