@@ -496,7 +496,122 @@ export default ({ mode, command }) => {
 }
 ```
 
+## 规范
 
+### ESLint + Prettier
+
+```bash
+npm i eslint eslint-config-airbnb eslint-config-prettier eslint-plugin-prettier prettier -D
+npm i eslint-define-config -D
+# eslint-define-config 提供配置项的良好提示
+
+npm i eslint-plugin-jsx-a11y eslint-plugin-react eslint-plugin-react-hooks -D
+
+npm i @typescript-eslint/eslint-plugin @typescript-eslint/parser -D
+
+npm i eslint-plugin-import eslint-plugin-simple-import-sort -D
+
+eslint-plugin-jest
+```
+
+新建.eslintignore文件
+
+```bash
+typings
+lib/**/*
+node_modules
+dist
+**/*.d.ts
+vite.config.ts
+```
+
+新建.eslintrc.js；添加规则，请更新`.eslintrc.(yml|json|js)`：
+
+```bash
+module.exports = {
+  root: true,
+  parser: '@typescript-eslint/parser',
+  parserOptions: {
+    ecmaVersion: 2021,
+    sourceType: 'module',
+    ecmaFeatures: {
+      jsx: true,
+    },
+  },
+  settings: {
+    react: {
+      version: 'detect',
+    },
+  },
+  env: {
+    browser: true,
+    amd: true,
+    node: true,
+  },
+  extends: [
+    'eslint:recommended',
+    'plugin:react/recommended',
+    'plugin:react-hooks/recommended',
+    'plugin:jsx-a11y/recommended',
+    'plugin:prettier/recommended',
+  ],
+  plugins: ['simple-import-sort', 'prettier'],
+  rules: {
+    'prettier/prettier': [
+      'error',
+      {
+        singleQuote: true,
+        semi: false,
+      },
+      { usePrettierrc: true },
+    ],
+    'react/react-in-jsx-scope': 'off',
+    'jsx-a11y/accessible-emoji': 'off',
+    'react/prop-types': 'off',
+    '@typescript-eslint/explicit-function-return-type': 'off',
+    'simple-import-sort/imports': 'error',
+    'simple-import-sort/exports': 'error',
+    'jsx-a11y/anchor-is-valid': [
+      'error',
+      {
+        components: ['Link'],
+        specialLink: ['hrefLeft', 'hrefRight'],
+        aspects: ['invalidHref', 'preferButton'],
+      },
+    ],
+    'no-debugger': 0,
+    eqeqeq: 2,
+    'default-case': 1,
+    'no-empty-function': 1,
+    'no-multi-spaces': 1,
+    'spaced-comment': ['error', 'always'],
+    'no-multiple-empty-lines': ['error', { max: 3 }],
+  },
+}
+```
+
+配置scripts
+
+```json
+{
+  "scripts": {
+    "lint:script": "eslint . --ext .js,.jsx,.ts,.tsx",
+    "lint-fix:script": "npm run lint:script -- --fix"
+  }
+}
+```
+
+npm run lint:script 即可查看lint出来的不规范的代码。
+
+npm run lint-fix:script 即可格式化文件。
+
+
+
+### 
+
+### Husky
+
+### Commit-lint
 
 ## 其他
 

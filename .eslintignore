@@ -1,0 +1,6 @@
+typings
+lib/**/*
+node_modules
+dist
+**/*.d.ts
+vite.config.ts
