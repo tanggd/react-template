@@ -32,14 +32,6 @@ module.exports = defineConfig({
   ],
   plugins: ['simple-import-sort', 'prettier'],
   rules: {
-    'prettier/prettier': [
-      'error',
-      {
-        singleQuote: true, // 用单引号
-        semi: false, // 去掉分号
-      },
-      { usePrettierrc: true },
-    ],
     'react/react-in-jsx-scope': 'off',
     'jsx-a11y/accessible-emoji': 'off',
     'react/prop-types': 'off',

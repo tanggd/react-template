@@ -1,3 +1,5 @@
+import './index.less'
+
 import { SearchOutlined } from '@ant-design/icons'
 import { Button } from 'antd'
 import { useState } from 'react'
@@ -14,12 +16,7 @@ export default function Home() {
     <div>
       <h1>Home</h1>
       <h2>{VITE_APP_TITLE}</h2>
-      <img
-        src={logo}
-        className="App-logo"
-        alt="logo"
-        style={{ width: '200px', height: '200px' }}
-      />
+      <img src={logo} className="App-logo" alt="logo" style={{ width: '200px', height: '200px' }} />
       <Button
         type="primary"
         icon={<SearchOutlined />}

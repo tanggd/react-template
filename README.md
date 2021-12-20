@@ -528,66 +528,19 @@ vite.config.ts
 新建.eslintrc.js；添加规则，请更新`.eslintrc.(yml|json|js)`：
 
 ```bash
-module.exports = {
-  root: true,
-  parser: '@typescript-eslint/parser',
-  parserOptions: {
-    ecmaVersion: 2021,
-    sourceType: 'module',
-    ecmaFeatures: {
-      jsx: true,
-    },
-  },
-  settings: {
-    react: {
-      version: 'detect',
-    },
-  },
-  env: {
-    browser: true,
-    amd: true,
-    node: true,
-  },
-  extends: [
-    'eslint:recommended',
-    'plugin:react/recommended',
-    'plugin:react-hooks/recommended',
-    'plugin:jsx-a11y/recommended',
-    'plugin:prettier/recommended',
-  ],
-  plugins: ['simple-import-sort', 'prettier'],
-  rules: {
-    'prettier/prettier': [
-      'error',
-      {
-        singleQuote: true,
-        semi: false,
-      },
-      { usePrettierrc: true },
-    ],
-    'react/react-in-jsx-scope': 'off',
-    'jsx-a11y/accessible-emoji': 'off',
-    'react/prop-types': 'off',
-    '@typescript-eslint/explicit-function-return-type': 'off',
-    'simple-import-sort/imports': 'error',
-    'simple-import-sort/exports': 'error',
-    'jsx-a11y/anchor-is-valid': [
-      'error',
-      {
-        components: ['Link'],
-        specialLink: ['hrefLeft', 'hrefRight'],
-        aspects: ['invalidHref', 'preferButton'],
-      },
-    ],
-    'no-debugger': 0,
-    eqeqeq: 2,
-    'default-case': 1,
-    'no-empty-function': 1,
-    'no-multi-spaces': 1,
-    'spaced-comment': ['error', 'always'],
-    'no-multiple-empty-lines': ['error', { max: 3 }],
-  },
-}
+
+```
+
+新建 .prettierignore
+
+```bash
+
+```
+
+新建prettier.config.js
+
+```javascript
+
 ```
 
 配置scripts
@@ -605,11 +558,27 @@ npm run lint:script 即可查看lint出来的不规范的代码。
 
 npm run lint-fix:script 即可格式化文件。
 
+### stylelint
+
+```bash
+npm i -D stylelint stylelint-config-prettier stylelint-config-standard stylelint-order stylelint-config-rational-order
+```
+
+新建 .stylelintignore
+
+```bash
+```
+
+新建 stylelint.config.js
+
+```javascript
+```
 
 
-### 
 
 ### Husky
+
+
 
 ### Commit-lint
 
