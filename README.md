@@ -500,6 +500,10 @@ export default ({ mode, command }) => {
 
 ### ESLint + Prettier
 
+ESLint：规范代码（）
+
+Prettier：格式化代码
+
 ```bash
 npm i eslint eslint-config-airbnb eslint-config-prettier eslint-plugin-prettier prettier -D
 npm i eslint-define-config -D
@@ -560,6 +564,10 @@ npm run lint-fix:script 即可格式化文件。
 
 ### stylelint
 
+https://zhuanlan.zhihu.com/p/138323526
+
+对css规范化和格式化
+
 ```bash
 npm i -D stylelint stylelint-config-prettier stylelint-config-standard stylelint-order stylelint-config-rational-order stylelint-declaration-block-no-ignored-properties
 ```
@@ -577,6 +585,15 @@ npm i -D stylelint stylelint-config-prettier stylelint-config-standard stylelint
 配置scripts
 
 ```javascript
+"scripts": {
+    "lint:script": "eslint . --ext .js,.jsx,.ts,.tsx",
+    "lint:style": "stylelint \"**/*.{less,postcss,css,scss}\"",
+    "lint-fix:script": "npm run lint:script -- --fix",
+    "lint-fix:style": "npm run lint:style -- --fix",
+    "lint-fix": "npm run lint-fix:script && npm run lint-fix:style",
+    "lint": "npm run tsc && npm run lint-fix",
+    "tsc": "tsc --noEmit"
+},
 ```
 
 
@@ -586,6 +603,10 @@ npm i -D stylelint stylelint-config-prettier stylelint-config-standard stylelint
 
 
 ### Commit-lint
+
+## TailwindCSS v3.0
+
+
 
 ## 其他
 
