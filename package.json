@@ -14,7 +14,10 @@
     "lint:script": "eslint . --ext .js,.jsx,.ts,.tsx",
     "lint:style": "stylelint \"**/*.{less,postcss,css,scss}\"",
     "lint-fix:script": "npm run lint:script -- --fix",
-    "lint-fix:style": "npm run lint:style -- --fix"
+    "lint-fix:style": "npm run lint:style -- --fix",
+    "lint-fix": "npm run lint-fix:script && npm run lint-fix:style",
+    "lint": "npm run tsc && npm run lint-fix",
+    "tsc": "tsc --noEmit"
   },
   "dependencies": {
     "@ant-design/icons": "^4.7.0",

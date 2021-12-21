@@ -561,7 +561,7 @@ npm run lint-fix:script 即可格式化文件。
 ### stylelint
 
 ```bash
-npm i -D stylelint stylelint-config-prettier stylelint-config-standard stylelint-order stylelint-config-rational-order
+npm i -D stylelint stylelint-config-prettier stylelint-config-standard stylelint-order stylelint-config-rational-order stylelint-declaration-block-no-ignored-properties
 ```
 
 新建 .stylelintignore
@@ -569,7 +569,12 @@ npm i -D stylelint stylelint-config-prettier stylelint-config-standard stylelint
 ```bash
 ```
 
-新建 stylelint.config.js
+新建 .stylelintrc.js
+
+```javascript
+```
+
+配置scripts
 
 ```javascript
 ```
