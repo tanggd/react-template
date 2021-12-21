@@ -18,8 +18,7 @@
     "lint-fix": "npm run lint-fix:script && npm run lint-fix:style",
     "lint": "npm run tsc && npm run lint-fix",
     "tsc": "tsc --noEmit",
-    "prepare": "husky install",
-    "lint:pretty": "pretty-quick --staged"
+    "prepare": "husky install"
   },
   "dependencies": {
     "@ant-design/icons": "^4.7.0",
