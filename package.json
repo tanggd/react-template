@@ -17,7 +17,8 @@
     "lint-fix:style": "npm run lint:style -- --fix",
     "lint-fix": "npm run lint-fix:script && npm run lint-fix:style",
     "lint": "npm run tsc && npm run lint-fix",
-    "tsc": "tsc --noEmit"
+    "tsc": "tsc --noEmit",
+    "prepare": "husky install"
   },
   "dependencies": {
     "@ant-design/icons": "^4.7.0",
@@ -44,6 +45,7 @@
     "eslint-plugin-react": "^7.27.1",
     "eslint-plugin-react-hooks": "^4.3.0",
     "eslint-plugin-simple-import-sort": "^7.0.0",
+    "husky": "^7.0.0",
     "less": "^4.1.2",
     "prettier": "^2.5.1",
     "stylelint": "^14.1.0",

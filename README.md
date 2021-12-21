@@ -598,11 +598,50 @@ npm i -D stylelint stylelint-config-prettier stylelint-config-standard stylelint
 
 
 
-### Husky
+### Husky + Lint-staged
+
+commit 规范化
+
+commit前对代码进行代码检测（eslint、stylelint)，检测通过就格式化代码(eslint --fix、stylelint --fix)，若检测未通过，则终止commit
+
+使用Git Hook便可达到目的。
+
+#### Husky
+
+husky —— Git Hook 工具，可以设置在 git 各个阶段（pre-commit、commit-msg、pre-push 等）触发我们的命令。
+
+```bash
+npx husky-init
+```
+
+命令做了3件事
+
+1. 在package.json中添加开发依赖husky，此时的husky未下载，需要执行npm install
+2. 并增加scripts配置"prepare": "husky install"
+3. 创建`.husky` 目录，在目录下创建文件
+
+```bash
+.husky
+├── pre-commit
+└── _
+    ├── .gitignore
+    └── husky.sh
+```
+
+修改pre-commit文件
+
+```bash
+```
 
 
 
-### Commit-lint
+
+
+#### Lint-staged
+
+lint-staged —— 在 git 暂存的文件上运行 lint.
+
+
 
 ## TailwindCSS v3.0
 
@@ -651,5 +690,10 @@ https://juejin.cn/post/7028137821269393438
 
 
 
+目录结构生成
 
+```
+npm i tree-node-cli -g
+```
 
+treee -L 4 -I "node_modules|dist|src" -a > a.md
