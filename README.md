@@ -621,6 +621,18 @@ npm i lint-staged -D
 
 #### Commitlint
 
+```bash
+npm i -D @commitlint/cli @commitlint/config-conventional commitizen
+```
+
+新建 commitlint.config.js
+
+```javascript
+
+```
+
+新建 commit-msg
+
 ## TailwindCSS v3.0
 
 ## 其他
