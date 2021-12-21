@@ -1,4 +1,9 @@
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
 
-npx lint-staged
+# 把type检测加入
+npm run tsc
+
+npm run lint:lint-staged
+
+npm run lint:pretty

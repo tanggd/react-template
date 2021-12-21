@@ -17,6 +17,8 @@
     "lint-fix:style": "npm run lint:style -- --fix",
     "lint-fix": "npm run lint-fix:script && npm run lint-fix:style",
     "lint": "npm run tsc && npm run lint-fix",
+    "lint:lint-staged": "lint-staged -c ./.husky/lintstagedrc.js",
+    "lint:pretty": "pretty-quick --staged",
     "tsc": "tsc --noEmit",
     "prepare": "husky install"
   },

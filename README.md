@@ -469,6 +469,8 @@ export default ({ mode, command }) => {
 
 ### ESLint + Prettier
 
+参考 https://juejin.cn/post/6973288527802925092#heading-10 来做，下面的说明暂时参考
+
 ESLint：规范代码（）
 
 Prettier：格式化代码
@@ -567,7 +569,7 @@ npm i -D stylelint stylelint-config-prettier stylelint-config-standard stylelint
 },
 ```
 
-### Husky + Lint-staged
+### Husky + Lint-staged + Commitlint
 
 commit 规范化
 
@@ -610,6 +612,14 @@ npx husky-init
 lint-staged —— 在 git 暂存的文件上运行 lint.
 
 npm i lint-staged -D
+
+新建 lint-staged.config.js
+
+```javascript
+
+```
+
+#### Commitlint
 
 ## TailwindCSS v3.0
 
